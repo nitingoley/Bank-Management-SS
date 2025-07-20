@@ -19,6 +19,10 @@ app.use(cors({
   credentials: true,
 }));
 
+app.get("/", (req, res) => {
+  res.send("API is working 🚀");
+});
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URL)
