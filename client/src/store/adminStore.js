@@ -9,7 +9,7 @@ const useAdminStore = create((set) => ({
   fetchAccounts: async (token) => {
     set({ loading: true });
     try {
-      const res = await axios.get('http://localhost:4000/api/admin/users', {
+      const res = await axios.get('https://bank-management-ss.onrender.com/api/admin/users', {
         headers: { Authorization: `Bearer ${token}` },
       });
       set({ accounts: res.data, loading: false });
@@ -25,7 +25,7 @@ const useAdminStore = create((set) => ({
   searchAccounts: async (query, token) => {
     set({ loading: true });
     try {
-      const res = await axios.get(`http://localhost:4000/api/admin/search?query=${query}`, {
+      const res = await axios.get(`https://bank-management-ss.onrender.com/api/admin/search?query=${query}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       set({ accounts: res.data, loading: false });
