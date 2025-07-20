@@ -12,15 +12,27 @@ const { authenticate } = require("./middleware/auth");
 dotenv.config();
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://bank-management-ss.vercel.app"
+];
+
 app.use(cors({
-  origin: "https://bank-management-ss.vercel.app/",
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
 }));
 
+
 app.get("/", (req, res) => {
-  res.send("API is working 🚀");
+  res.send("API is working hroku🚀");
 });
 
 app.use(express.json());
