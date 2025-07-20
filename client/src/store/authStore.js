@@ -25,7 +25,7 @@ export const useAuthStore = create((set) => ({
   login: async (navigate) => {
     try {
       const { email, password } = useAuthStore.getState().form;
-      const res = await axios.post('http://localhost:4000/api/auth/login', {
+      const res = await axios.post('https://bank-management-ss.onrender.com/api/auth/login', {
         email,
         password,
       });
@@ -39,7 +39,7 @@ export const useAuthStore = create((set) => ({
   register: async (navigate) => {
     try {
       const { username, email, password } = useAuthStore.getState().form;
-      const res = await axios.post('http://localhost:4000/api/auth/register', {
+      const res = await axios.post('https://bank-management-ss.onrender.com/api/auth/register', {
         username,
         email,
         password,
