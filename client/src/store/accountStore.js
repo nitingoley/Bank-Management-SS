@@ -11,7 +11,7 @@ const useAccountStore = create((set) => ({
     const token = useAuthStore.getState().token;
 
     try {
-      const { data } = await axios.get("http://localhost:4000/api/accounts", {
+      const { data } = await axios.get("https://bank-management-ss.onrender.com/api/accounts", {
         headers: { Authorization: `Bearer ${token}` },
       });
       set({ accounts: data, loading: false });
