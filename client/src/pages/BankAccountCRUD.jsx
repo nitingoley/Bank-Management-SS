@@ -36,7 +36,7 @@ const BankAccountCRUD = () => {
 const navigate = useNavigate();
   const fetchAccounts = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/accounts", {
+      const res = await axios.get("https://bank-management-ss.onrender.com/api/accounts", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAccounts(res.data);
@@ -57,11 +57,11 @@ const navigate = useNavigate();
   const handleSubmit = async () => {
     try {
       if (editingId) {
-        await axios.put(`http://localhost:4000/api/accounts/${editingId}`, form, {
+        await axios.put(`https://bank-management-ss.onrender.com/api/accounts/${editingId}`, form, {
           headers: { Authorization: `Bearer ${token}` },
         });
       } else {
-        await axios.post("http://localhost:4000/api/accounts", form, {
+        await axios.post("https://bank-management-ss.onrender.com/api/accounts", form, {
           headers: { Authorization: `Bearer ${token}` },
         });
       }
@@ -93,7 +93,7 @@ const navigate = useNavigate();
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/accounts/${id}`, {
+      await axios.delete(`https://bank-management-ss.onrender.com/api/accounts/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchAccounts();
